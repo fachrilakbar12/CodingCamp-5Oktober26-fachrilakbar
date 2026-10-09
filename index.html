@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Life Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <div class="hero-top">
+        <p class="date" id="date"></p>
+        <button class="btn btn-quiet" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      </div>
+
+      <time class="clock" id="clock" aria-label="Current time">
+        <span id="clock-main">00:00</span><span class="clock-seconds" id="clock-seconds">:00</span>
+      </time>
+
+      <h1 class="greeting" id="greeting">Good morning</h1>
+
+      <form class="name-form" id="name-form" autocomplete="off">
+        <label for="name-input">Your name</label>
+        <input id="name-input" type="text" maxlength="30" placeholder="Shown in your greeting">
+        <button class="btn btn-quiet" type="submit">Save name</button>
+      </form>
+    </header>
+
+    <div class="board">
+      <div class="side">
+
+        <section class="panel timer" aria-labelledby="timer-title">
+          <h2 id="timer-title">Focus timer</h2>
+          <p class="timer-display" id="timer-display" role="timer">25:00</p>
+          <div class="timer-actions">
+            <button class="btn btn-timer-primary" id="timer-start" type="button">Start</button>
+            <button class="btn btn-timer" id="timer-stop" type="button" disabled>Stop</button>
+            <button class="btn btn-timer" id="timer-reset" type="button">Reset</button>
+          </div>
+          <p class="timer-status" id="timer-status" aria-live="polite">25 minutes of focus. Ready when you are.</p>
+        </section>
+
+        <section class="panel" aria-labelledby="links-title">
+          <h2 id="links-title">Quick links</h2>
+          <ul class="link-list" id="link-list"></ul>
+          <form class="link-form" id="link-form" autocomplete="off" novalidate>
+            <div class="field">
+              <label for="link-name">Name</label>
+              <input id="link-name" type="text" maxlength="24" placeholder="Docs">
+            </div>
+            <div class="field">
+              <label for="link-url">Address</label>
+              <input id="link-url" type="text" placeholder="example.com">
+            </div>
+            <button class="btn btn-primary" type="submit">Add link</button>
+          </form>
+          <p class="error" id="link-error" role="alert"></p>
+        </section>
+
+      </div>
+
+      <section class="panel tasks" aria-labelledby="tasks-title">
+        <div class="panel-head">
+          <h2 id="tasks-title">Tasks</h2>
+          <p class="task-count" id="task-count"></p>
+        </div>
+
+        <form class="task-form" id="task-form" autocomplete="off">
+          <label class="sr-only" for="task-input">New task</label>
+          <input id="task-input" type="text" maxlength="120" placeholder="What needs to get done?">
+          <button class="btn btn-primary" type="submit">Add task</button>
+        </form>
+        <p class="error" id="task-error" role="alert"></p>
+
+        <p class="empty" id="task-empty">No tasks yet. Add your first one above.</p>
+        <ul class="task-list" id="task-list"></ul>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
